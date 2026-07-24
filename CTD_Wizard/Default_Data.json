@@ -1,0 +1,1490 @@
+======================================================================
+                CLAROTY CTD BEST PRACTICE WIZARD REPORT
+======================================================================
+Target Appliance : site-flying-lacewing-1.dr8cjzjj.demotapp.com
+Audit Run Date   : 2026-07-22
+Scope            : Federal POV Post-Install Baseline
+======================================================================
+
+!!! EXECUTIVE ACTION PLAN & ANOMALIES !!!
+The following misconfigurations or warnings require immediate review:
+
+  * 🛡️ COMPLIANCE: FIPS mode is disabled. For Federal POVs, FIPS cryptography is typically mandatory. Verify if this demo key requires a FIPS-compliant replacement.
+  * 🔌 INGESTION BLINDSPOT: No active data-ingestion interfaces were detected. Ensure SPAN/mirror traffic is mapped and enabled on the appropriate sensor port.
+  * 🚨 INSECURE PROTOCOLS: Cleartext protocols detected as enabled (FTP). In Federal zero-trust environments, these should be disabled unless actively required for legacy OT communications.
+
+======================================================================
+
+--- System Health Summary ---
+STATUS : PASS
+
+RAW DATA:
+{
+    "Server_CPU": "3.6%",
+    "Server_Memory": "59.04%",
+    "Storage": {
+        "Data (/var)": "1.87%",
+        "Logs (/var/log)": "3.75%",
+        "OS (/)": "68.47%"
+    }
+}
+
+----------------------------------------------------------------------
+
+--- License Status ---
+STATUS : REVIEW
+
+RAW DATA:
+{
+    "data": {
+        "existing_license_key": "dkd*PLDKS&D1g[Lk8}NgASVUwAAAAAAAAB9lCiMDW9yaWdpbmFsX3NpemWUSwqMBmNpcGhlcpRDMIlysv40z9AX8uV+TynwJo9eHUOIeqWqZ6HdUEX+UDB9UchBlmSffTzem5SBnNikA5R1Lg==",
+        "expiration_date": "2029-04-15T18:41:52",
+        "is_fips": false,
+        "machine_uuid": "59a42b72-21d0-efa4-7374-72269b8df8c6",
+        "sensors_limit": null,
+        "status": "green"
+    },
+    "success": true
+}
+
+----------------------------------------------------------------------
+
+--- Subnet & Zone Rules ---
+STATUS : PASS
+
+RAW DATA:
+{
+    "count_filtered": 1,
+    "count_in_page": 1,
+    "count_total": 1,
+    "objects": [
+        {
+            "added_manually": false,
+            "asset_purdue_levels": null,
+            "criticality": 0,
+            "criticality__": "eLow",
+            "criticality_from_user": null,
+            "description": null,
+            "id": 1,
+            "is_default": true,
+            "name": "Default Zone",
+            "num_assets": 0,
+            "resource_id": "1-1",
+            "risk_level": 0,
+            "site_id": 1
+        }
+    ]
+}
+
+----------------------------------------------------------------------
+
+--- Cleaned Subnet Table Summary ---
+STATUS : REVIEW
+
+RAW DATA:
+No subnet data objects found.
+
+----------------------------------------------------------------------
+
+--- Threat Bundles & Updates ---
+STATUS : INFO
+
+RAW DATA:
+{
+    "base_version": {
+        "data": {
+            "1": {
+                "error": "",
+                "response": "5.2.2.0-68867"
+            }
+        },
+        "success": true
+    },
+    "update_version": {
+        "data": {
+            "installed_at": null,
+            "update_version": 0
+        },
+        "success": true
+    },
+    "threat_bundle_last_update": {
+        "data": {
+            "bundle_id": 112,
+            "bundle_path": "",
+            "last_date_of_issue": ""
+        },
+        "success": true
+    }
+}
+
+----------------------------------------------------------------------
+
+--- System Operational Mode ---
+STATUS : INFO
+
+RAW DATA:
+{
+    "count_filtered": 1,
+    "count_in_page": 1,
+    "count_total": 1,
+    "objects": [
+        {
+            "address": null,
+            "auto_transition_to_operational": true,
+            "description": null,
+            "id": 1,
+            "name": "site-10-0-57-149",
+            "score": 100,
+            "training_mode": true,
+            "uuid": "59a42b72-21d0-efa4-7374-72269b8df8c6",
+            "version": "5.2.2.0-68867"
+        }
+    ]
+}
+
+----------------------------------------------------------------------
+
+--- Collection Methods / Sensors ---
+STATUS : INFO
+
+RAW DATA:
+{
+    "data": {
+        "statuses": {
+            "children": [],
+            "parents": [
+                {
+                    "address": "10.0.48.173",
+                    "is_connected": true,
+                    "name": "68b28009-2bcd-9d5f-d0a0-d68e80f2e1a8",
+                    "uuid": "68b28009-2bcd-9d5f-d0a0-d68e80f2e1a8"
+                }
+            ]
+        },
+        "success": true
+    },
+    "success": true
+}
+
+----------------------------------------------------------------------
+
+--- Network Interfaces List ---
+STATUS : INFO
+
+RAW DATA:
+{
+    "msg": "Unknown machine with name 072043d5-2ad1-5937-e26a-c5d0ec0b09ff",
+    "success": false
+}
+
+----------------------------------------------------------------------
+
+--- Advanced Network List Summary ---
+STATUS : PASS
+
+RAW DATA:
+================================================================================
+#   | NETWORK / ENVIRONMENT NAME               | NETWORK ID
+--------------------------------------------------------------------------------
+1   | Default                                  | 1
+================================================================================
+
+----------------------------------------------------------------------
+
+--- DPI Protocols State ---
+STATUS : REVIEW
+
+RAW DATA:
+{
+    "data": [
+        {
+            "extra_param": 25945,
+            "is_enabled": true,
+            "name": "honeywell.Firewall"
+        },
+        {
+            "extra_param": 35087,
+            "is_enabled": true,
+            "name": "cclink_ie.cclink_ie_field"
+        },
+        {
+            "extra_param": 34968,
+            "is_enabled": true,
+            "name": "fortinet_discovery"
+        },
+        {
+            "extra_param": 34955,
+            "is_enabled": true,
+            "name": "toshiba_tcnet"
+        },
+        {
+            "extra_param": 34835,
+            "is_enabled": true,
+            "name": "terasaki.layer_2_broadcast"
+        },
+        {
+            "extra_param": 35070,
+            "is_enabled": false,
+            "name": "rapienet"
+        },
+        {
+            "is_enabled": true,
+            "name": "rpc"
+        },
+        {
+            "is_enabled": true,
+            "name": "dns"
+        },
+        {
+            "is_enabled": true,
+            "name": "ssh"
+        },
+        {
+            "is_enabled": true,
+            "name": "dhcp"
+        },
+        {
+            "is_enabled": true,
+            "name": "ftp"
+        },
+        {
+            "is_enabled": true,
+            "name": "ftp_data"
+        },
+        {
+            "is_enabled": true,
+            "name": "http"
+        },
+        {
+            "is_enabled": true,
+            "name": "icmp"
+        },
+        {
+            "is_enabled": true,
+            "name": "igmp"
+        },
+        {
+            "is_enabled": true,
+            "name": "modbus.tcp"
+        },
+        {
+            "is_enabled": true,
+            "name": "browser"
+        },
+        {
+            "is_enabled": true,
+            "name": "arp"
+        },
+        {
+            "is_enabled": true,
+            "name": "cip"
+        },
+        {
+            "is_enabled": true,
+            "name": "enip"
+        },
+        {
+            "is_enabled": true,
+            "name": "s7comm"
+        },
+        {
+            "is_enabled": true,
+            "name": "profinet.dcp"
+        },
+        {
+            "is_enabled": true,
+            "name": "llc"
+        },
+        {
+            "is_enabled": true,
+            "name": "lldp"
+        },
+        {
+            "is_enabled": true,
+            "name": "dcerpc"
+        },
+        {
+            "is_enabled": true,
+            "name": "mms"
+        },
+        {
+            "is_enabled": true,
+            "name": "tftp"
+        },
+        {
+            "is_enabled": true,
+            "name": "profinet.pn_io"
+        },
+        {
+            "is_enabled": true,
+            "name": "ntp"
+        },
+        {
+            "is_enabled": true,
+            "name": "opc_ua"
+        },
+        {
+            "is_enabled": true,
+            "name": "nbdgm"
+        },
+        {
+            "is_enabled": true,
+            "name": "ntlmssp"
+        },
+        {
+            "is_enabled": true,
+            "name": "samr"
+        },
+        {
+            "is_enabled": true,
+            "name": "vnc"
+        },
+        {
+            "is_enabled": true,
+            "name": "ssl"
+        },
+        {
+            "is_enabled": true,
+            "name": "s7commplus"
+        },
+        {
+            "is_enabled": true,
+            "name": "cotp"
+        },
+        {
+            "is_enabled": true,
+            "name": "smb"
+        },
+        {
+            "is_enabled": true,
+            "name": "smb_pipe"
+        },
+        {
+            "is_enabled": true,
+            "name": "lanman"
+        },
+        {
+            "is_enabled": true,
+            "name": "atsvc"
+        },
+        {
+            "is_enabled": true,
+            "name": "srvsvc"
+        },
+        {
+            "is_enabled": true,
+            "name": "rdp"
+        },
+        {
+            "is_enabled": true,
+            "name": "ge_srtp"
+        },
+        {
+            "is_enabled": true,
+            "name": "goose"
+        },
+        {
+            "is_enabled": true,
+            "name": "egd"
+        },
+        {
+            "is_enabled": true,
+            "name": "roc_plus"
+        },
+        {
+            "is_enabled": true,
+            "name": "bnc"
+        },
+        {
+            "is_enabled": true,
+            "name": "ge_sdi"
+        },
+        {
+            "is_enabled": true,
+            "name": "ge_sdiclassic"
+        },
+        {
+            "is_enabled": true,
+            "name": "ge_quickpanel"
+        },
+        {
+            "is_enabled": true,
+            "name": "foxboro"
+        },
+        {
+            "is_enabled": false,
+            "name": "ff"
+        },
+        {
+            "is_enabled": false,
+            "name": "honeywell.FtebCipMsg"
+        },
+        {
+            "is_enabled": false,
+            "name": "honeywell.PsCdaCeeNtComm"
+        },
+        {
+            "is_enabled": false,
+            "name": "ldap"
+        },
+        {
+            "is_enabled": false,
+            "name": "kerberos"
+        },
+        {
+            "is_enabled": false,
+            "name": "rlogin"
+        },
+        {
+            "is_enabled": false,
+            "name": "smtp"
+        },
+        {
+            "is_enabled": false,
+            "name": "pop"
+        },
+        {
+            "is_enabled": false,
+            "name": "imap"
+        },
+        {
+            "is_enabled": false,
+            "name": "honeywell.PsCdaCeeNtPeer"
+        },
+        {
+            "is_enabled": false,
+            "name": "hart_ip"
+        },
+        {
+            "is_enabled": false,
+            "name": "telnet"
+        },
+        {
+            "is_enabled": false,
+            "name": "totalflow"
+        },
+        {
+            "is_enabled": false,
+            "name": "bacnet"
+        },
+        {
+            "is_enabled": false,
+            "name": "ovation"
+        },
+        {
+            "is_enabled": false,
+            "name": "fwl_load"
+        },
+        {
+            "is_enabled": false,
+            "name": "symphony_plus"
+        },
+        {
+            "is_enabled": false,
+            "name": "pinet.pi1"
+        },
+        {
+            "is_enabled": true,
+            "name": "pinet.pi3"
+        },
+        {
+            "is_enabled": false,
+            "name": "iec104"
+        },
+        {
+            "is_enabled": true,
+            "name": "rcdp"
+        },
+        {
+            "is_enabled": false,
+            "name": "eterra"
+        },
+        {
+            "is_enabled": false,
+            "name": "eterra_workstation"
+        },
+        {
+            "is_enabled": false,
+            "name": "abb_dms"
+        },
+        {
+            "is_enabled": true,
+            "name": "red_lion"
+        },
+        {
+            "is_enabled": true,
+            "name": "synchrophasor"
+        },
+        {
+            "is_enabled": true,
+            "name": "mqtt"
+        },
+        {
+            "is_enabled": true,
+            "name": "citect"
+        },
+        {
+            "is_enabled": true,
+            "name": "keyence.keyence_kv_studio"
+        },
+        {
+            "is_enabled": true,
+            "name": "profinet.rt"
+        },
+        {
+            "is_enabled": true,
+            "name": "beckhoff"
+        },
+        {
+            "is_enabled": true,
+            "name": "tpkt"
+        },
+        {
+            "is_enabled": true,
+            "name": "portmapper"
+        },
+        {
+            "is_enabled": true,
+            "name": "hsrp"
+        },
+        {
+            "is_enabled": true,
+            "name": "cpha"
+        },
+        {
+            "is_enabled": true,
+            "name": "rtcp"
+        },
+        {
+            "is_enabled": false,
+            "name": "ge_enervista"
+        },
+        {
+            "is_enabled": true,
+            "name": "epm"
+        },
+        {
+            "is_enabled": true,
+            "name": "sel"
+        },
+        {
+            "is_enabled": true,
+            "name": "sip"
+        },
+        {
+            "is_enabled": true,
+            "name": "skinny"
+        },
+        {
+            "is_enabled": true,
+            "name": "radius"
+        },
+        {
+            "is_enabled": true,
+            "name": "capwap_control"
+        },
+        {
+            "is_enabled": true,
+            "name": "capwap_data"
+        },
+        {
+            "is_enabled": true,
+            "name": "wlan"
+        },
+        {
+            "is_enabled": true,
+            "name": "hp_switch"
+        },
+        {
+            "is_enabled": true,
+            "name": "ptp"
+        },
+        {
+            "is_enabled": true,
+            "name": "abb_melody"
+        },
+        {
+            "is_enabled": true,
+            "name": "factorytalk_rna"
+        },
+        {
+            "is_enabled": true,
+            "name": "valmet_dna.damatic_configuration"
+        },
+        {
+            "is_enabled": true,
+            "name": "sampled_values"
+        },
+        {
+            "is_enabled": true,
+            "name": "cspv4"
+        },
+        {
+            "is_enabled": true,
+            "name": "hirschmann"
+        },
+        {
+            "is_enabled": true,
+            "name": "digi_real_port"
+        },
+        {
+            "is_enabled": true,
+            "name": "ethercat"
+        },
+        {
+            "is_enabled": true,
+            "name": "mdns"
+        },
+        {
+            "is_enabled": true,
+            "name": "llmnr"
+        },
+        {
+            "is_enabled": true,
+            "name": "icmpv6"
+        },
+        {
+            "is_enabled": true,
+            "name": "nbns"
+        },
+        {
+            "is_enabled": true,
+            "name": "h1"
+        },
+        {
+            "is_enabled": true,
+            "name": "bittorrent"
+        },
+        {
+            "is_enabled": true,
+            "name": "fins.tcp"
+        },
+        {
+            "extra_param": [
+                "104b46",
+                "38e08e",
+                "002692",
+                "080070"
+            ],
+            "is_enabled": true,
+            "name": "melsec"
+        },
+        {
+            "extra_param": "004003",
+            "is_enabled": true,
+            "name": "ovation.ovationrpc"
+        },
+        {
+            "extra_param": [
+                "0005e4",
+                "0007af",
+                "001347",
+                "0060da",
+                "00a01d"
+            ],
+            "is_enabled": true,
+            "name": "red_lion.red_lion_discovery"
+        },
+        {
+            "extra_param": 1911,
+            "is_enabled": true,
+            "name": "tridium_fox"
+        },
+        {
+            "extra_param": 2999,
+            "is_enabled": true,
+            "name": "sattbus"
+        },
+        {
+            "extra_param": 20171,
+            "is_enabled": true,
+            "name": "vnet.odeq"
+        },
+        {
+            "extra_param": [
+                5313,
+                9940
+            ],
+            "is_enabled": true,
+            "name": "vnet"
+        },
+        {
+            "extra_param": [
+                5313,
+                9940
+            ],
+            "is_enabled": true,
+            "name": "vnet.vhf"
+        },
+        {
+            "extra_param": "10000-10255",
+            "is_enabled": true,
+            "name": "ovation.alarm"
+        },
+        {
+            "extra_param": [
+                10001,
+                50000
+            ],
+            "is_enabled": true,
+            "name": "modbus.serial"
+        },
+        {
+            "extra_param": 20547,
+            "is_enabled": true,
+            "name": "proconos"
+        },
+        {
+            "extra_param": 1500,
+            "is_enabled": true,
+            "name": "tsaa"
+        },
+        {
+            "extra_param": 1502,
+            "is_enabled": true,
+            "name": "tristation"
+        },
+        {
+            "extra_param": [
+                8002,
+                8115
+            ],
+            "is_enabled": true,
+            "name": "axe"
+        },
+        {
+            "extra_param": [
+                18507,
+                18509,
+                18510,
+                18512,
+                18515,
+                18530
+            ],
+            "is_enabled": true,
+            "name": "deltav.device_connection"
+        },
+        {
+            "extra_param": 18519,
+            "is_enabled": true,
+            "name": "deltav.RtProgLog"
+        },
+        {
+            "extra_param": 18508,
+            "is_enabled": true,
+            "name": "deltav.FlashDownload"
+        },
+        {
+            "extra_param": 2000,
+            "is_enabled": true,
+            "name": "omniflow"
+        },
+        {
+            "extra_param": [
+                20000
+            ],
+            "is_enabled": true,
+            "name": "dnp3"
+        },
+        {
+            "extra_param": 7937,
+            "is_enabled": true,
+            "name": "egd_cmp"
+        },
+        {
+            "extra_param": 5033,
+            "is_enabled": false,
+            "name": "p2"
+        },
+        {
+            "extra_param": 3991,
+            "is_enabled": false,
+            "name": "ovation.dbxmit"
+        },
+        {
+            "extra_param": 3066,
+            "is_enabled": false,
+            "name": "ovation.ptedit"
+        },
+        {
+            "extra_param": 12321,
+            "is_enabled": false,
+            "name": "honeywell.comm_setup"
+        },
+        {
+            "extra_param": 55565,
+            "is_enabled": false,
+            "name": "honeywell.EpicMo"
+        },
+        {
+            "extra_param": 22001,
+            "is_enabled": false,
+            "name": "opto"
+        },
+        {
+            "extra_param": 2001,
+            "is_enabled": false,
+            "name": "opto_mmp"
+        },
+        {
+            "extra_param": 30718,
+            "is_enabled": false,
+            "name": "lantronix"
+        },
+        {
+            "extra_param": 1505,
+            "is_enabled": false,
+            "name": "cti"
+        },
+        {
+            "extra_param": [
+                3000,
+                3001
+            ],
+            "is_enabled": false,
+            "name": "bailey.tcp"
+        },
+        {
+            "extra_param": 8000,
+            "is_enabled": false,
+            "name": "bailey.serial"
+        },
+        {
+            "extra_param": 7938,
+            "is_enabled": true,
+            "name": "ge_alm"
+        },
+        {
+            "extra_param": 50000,
+            "is_enabled": true,
+            "name": "prosoft_discovery"
+        },
+        {
+            "extra_param": "2101-2116",
+            "is_enabled": false,
+            "name": "iec101"
+        },
+        {
+            "extra_param": [
+                2500,
+                2502
+            ],
+            "is_enabled": false,
+            "name": "bailey.infininet"
+        },
+        {
+            "extra_param": [
+                5051
+            ],
+            "is_enabled": false,
+            "name": "secsgem"
+        },
+        {
+            "extra_param": [
+                5011,
+                5012
+            ],
+            "is_enabled": false,
+            "name": "dacp"
+        },
+        {
+            "extra_param": 5001,
+            "is_enabled": false,
+            "name": "iec103"
+        },
+        {
+            "extra_param": 8230,
+            "is_enabled": true,
+            "name": "keyence.keyence_log_reporter"
+        },
+        {
+            "extra_param": [
+                1069,
+                51069
+            ],
+            "is_enabled": true,
+            "name": "cognex_discovery"
+        },
+        {
+            "extra_param": [
+                5900,
+                5995,
+                5112,
+                10100,
+                10200,
+                10300,
+                10500,
+                13500,
+                30000,
+                31000,
+                30002,
+                31002,
+                49196
+            ],
+            "is_enabled": true,
+            "name": "kongsberg"
+        },
+        {
+            "extra_param": 45589,
+            "is_enabled": true,
+            "name": "portwell"
+        },
+        {
+            "extra_param": [
+                12100,
+                12101
+            ],
+            "is_enabled": false,
+            "name": "ovation.admd"
+        },
+        {
+            "extra_param": 5678,
+            "is_enabled": true,
+            "name": "mndp"
+        },
+        {
+            "extra_param": 50000,
+            "is_enabled": true,
+            "name": "siprotec"
+        },
+        {
+            "extra_param": 8501,
+            "is_enabled": false,
+            "name": "keyence.keyencehostlink"
+        },
+        {
+            "extra_param": 20476,
+            "is_enabled": true,
+            "name": "foxboro_rtv"
+        },
+        {
+            "extra_param": "28000-28100",
+            "is_enabled": true,
+            "name": "knapp"
+        },
+        {
+            "extra_param": 694,
+            "is_enabled": true,
+            "name": "linux_ha"
+        },
+        {
+            "extra_param": 4606,
+            "is_enabled": true,
+            "name": "comtrol_ns_link"
+        },
+        {
+            "extra_param": [
+                61450,
+                61451,
+                4999
+            ],
+            "is_enabled": true,
+            "name": "slmp"
+        },
+        {
+            "extra_param": [
+                "5000-5009",
+                5562
+            ],
+            "is_enabled": true,
+            "name": "melsoft"
+        },
+        {
+            "extra_param": 5413,
+            "is_enabled": true,
+            "name": "wonderware.iotalk"
+        },
+        {
+            "extra_param": 405,
+            "is_enabled": true,
+            "name": "altus.alnet"
+        },
+        {
+            "extra_param": [
+                2000,
+                2001
+            ],
+            "is_enabled": true,
+            "name": "alspa"
+        },
+        {
+            "extra_param": [
+                27126,
+                27127
+            ],
+            "is_enabled": true,
+            "name": "schneider_netmanage"
+        },
+        {
+            "extra_param": 11159,
+            "is_enabled": true,
+            "name": "bnr.ina2000"
+        },
+        {
+            "extra_param": 2002,
+            "is_enabled": true,
+            "name": "mdlc.mdlc_management"
+        },
+        {
+            "extra_param": 5001,
+            "is_enabled": true,
+            "name": "mdlc.mdlc_data"
+        },
+        {
+            "extra_param": [
+                10001,
+                12333,
+                51889,
+                13000
+            ],
+            "is_enabled": false,
+            "name": "caterpillar.gw_to_vims"
+        },
+        {
+            "extra_param": 2000,
+            "is_enabled": false,
+            "name": "caterpillar.hmi_to_gw"
+        },
+        {
+            "extra_param": [
+                139,
+                445,
+                1124,
+                3702,
+                5357,
+                5358,
+                49179,
+                37020
+            ],
+            "is_enabled": true,
+            "name": "wsd"
+        },
+        {
+            "extra_param": 2423,
+            "is_enabled": true,
+            "name": "abb_dcs.rnrp"
+        },
+        {
+            "extra_param": [
+                5410,
+                5411,
+                6000,
+                6009,
+                6036,
+                "6100-6500",
+                6510,
+                6605,
+                6608,
+                7001,
+                7002,
+                7003,
+                7016,
+                9000,
+                9001
+            ],
+            "is_enabled": false,
+            "name": "cygnet"
+        },
+        {
+            "extra_param": 1234,
+            "is_enabled": true,
+            "name": "enhanced_modbus"
+        },
+        {
+            "extra_param": [
+                "50000-50008,50014"
+            ],
+            "is_enabled": true,
+            "name": "java.jrmi"
+        },
+        {
+            "extra_param": [
+                10080,
+                1100
+            ],
+            "is_enabled": true,
+            "name": "java.java_rpc"
+        },
+        {
+            "extra_param": "10001-10003,20000-25000",
+            "is_enabled": true,
+            "name": "t3000.automation_server_data"
+        },
+        {
+            "extra_param": 10060,
+            "is_enabled": true,
+            "name": "t3000.gw_discover"
+        },
+        {
+            "extra_param": [
+                2000,
+                10110,
+                22100
+            ],
+            "is_enabled": true,
+            "name": "nmea_0183"
+        },
+        {
+            "extra_param": 22000,
+            "is_enabled": false,
+            "name": "opto_softpac_agent"
+        },
+        {
+            "extra_param": [
+                51914,
+                60665
+            ],
+            "is_enabled": true,
+            "name": "honeywell.safety_manager"
+        },
+        {
+            "extra_param": 2911,
+            "is_enabled": true,
+            "name": "honeywell.dsa_discovery"
+        },
+        {
+            "extra_param": 57612,
+            "is_enabled": true,
+            "name": "iq3"
+        },
+        {
+            "extra_param": "2517-2549",
+            "is_enabled": true,
+            "name": "valmet_dna.valmet_dna_data"
+        },
+        {
+            "extra_param": 11000,
+            "is_enabled": false,
+            "name": "valmet_dna.valmet_dna_frontend"
+        },
+        {
+            "extra_param": 22222,
+            "is_enabled": true,
+            "name": "valmet_dna.valmet_dna_alarms"
+        },
+        {
+            "extra_param": 7680,
+            "is_enabled": true,
+            "name": "wudo"
+        },
+        {
+            "extra_param": 1947,
+            "is_enabled": true,
+            "name": "sentinel_srm"
+        },
+        {
+            "extra_param": "20514-20522",
+            "is_enabled": true,
+            "name": "valmet_dna.damatic_data"
+        },
+        {
+            "extra_param": 1234,
+            "is_enabled": true,
+            "name": "bsap"
+        },
+        {
+            "extra_param": 5481,
+            "is_enabled": true,
+            "name": "clear_scada"
+        },
+        {
+            "extra_param": 21379,
+            "is_enabled": true,
+            "name": "matrikon_opc"
+        },
+        {
+            "extra_param": 5050,
+            "is_enabled": true,
+            "name": "sbus"
+        },
+        {
+            "extra_param": 4800,
+            "is_enabled": true,
+            "name": "moxa_udp"
+        },
+        {
+            "extra_param": 7700,
+            "is_enabled": true,
+            "name": "schneider_ion"
+        },
+        {
+            "extra_param": 3819,
+            "is_enabled": true,
+            "name": "ethernet_powerlink"
+        },
+        {
+            "extra_param": [
+                17224,
+                20548
+            ],
+            "is_enabled": true,
+            "name": "trdp.trdp_pd"
+        },
+        {
+            "extra_param": 28784,
+            "is_enabled": true,
+            "name": "koyo"
+        },
+        {
+            "extra_param": 13107,
+            "is_enabled": true,
+            "name": "xpact.xpact_data"
+        },
+        {
+            "extra_param": 39329,
+            "is_enabled": true,
+            "name": "xpact.xpact_discovery"
+        },
+        {
+            "extra_param": 17476,
+            "is_enabled": true,
+            "name": "xpact.xpact_diagnostics"
+        },
+        {
+            "extra_param": [
+                2111,
+                2112
+            ],
+            "is_enabled": true,
+            "name": "cola_a"
+        },
+        {
+            "extra_param": 10050,
+            "is_enabled": true,
+            "name": "zabbix.zabbix_agent"
+        },
+        {
+            "extra_param": 10051,
+            "is_enabled": true,
+            "name": "zabbix.zabbix_sender"
+        },
+        {
+            "extra_param": [
+                5002,
+                5003
+            ],
+            "is_enabled": false,
+            "name": "sinaut_fw8"
+        },
+        {
+            "extra_param": "4001-4006",
+            "is_enabled": true,
+            "name": "ttsac"
+        },
+        {
+            "extra_param": 2010,
+            "is_enabled": true,
+            "name": "ge_ifix"
+        },
+        {
+            "extra_param": 6626,
+            "is_enabled": true,
+            "name": "wago"
+        },
+        {
+            "extra_param": 2000,
+            "is_enabled": true,
+            "name": "siemens_iem"
+        },
+        {
+            "extra_param": 6352,
+            "is_enabled": false,
+            "name": "max_dna"
+        },
+        {
+            "extra_param": [
+                11740,
+                11741,
+                11742,
+                11743,
+                1740,
+                1741,
+                1742,
+                1743,
+                1105
+            ],
+            "is_enabled": true,
+            "name": "codesysv3"
+        },
+        {
+            "extra_param": [
+                2002,
+                2004
+            ],
+            "is_enabled": true,
+            "name": "xg5000"
+        },
+        {
+            "extra_param": [
+                55003,
+                55004
+            ],
+            "is_enabled": true,
+            "name": "flnet"
+        },
+        {
+            "extra_param": 25062,
+            "is_enabled": true,
+            "name": "pf_dcp"
+        },
+        {
+            "extra_param": [
+                4100,
+                "5000-5002",
+                50008
+            ],
+            "is_enabled": true,
+            "name": "gaz_modem"
+        },
+        {
+            "extra_param": [
+                2455,
+                1201
+            ],
+            "is_enabled": true,
+            "name": "codesysv2"
+        },
+        {
+            "extra_param": [
+                "4059-4063",
+                5025,
+                40000
+            ],
+            "is_enabled": true,
+            "name": "dlms_cosem"
+        },
+        {
+            "extra_param": [
+                3232,
+                18089,
+                "22010-22015"
+            ],
+            "is_enabled": false,
+            "name": "b32"
+        },
+        {
+            "extra_param": [
+                161,
+                162
+            ],
+            "is_enabled": true,
+            "name": "snmp"
+        },
+        {
+            "extra_param": [
+                1080
+            ],
+            "is_enabled": false,
+            "name": "pcwin"
+        },
+        {
+            "extra_param": [
+                1433,
+                2433
+            ],
+            "is_enabled": true,
+            "name": "tds"
+        },
+        {
+            "extra_param": [
+                5014,
+                5015
+            ],
+            "is_enabled": true,
+            "name": "mitsubishi_got"
+        },
+        {
+            "extra_param": [
+                10000,
+                10001
+            ],
+            "is_enabled": true,
+            "name": "jrc_vessel_display"
+        },
+        {
+            "extra_param": 8193,
+            "is_enabled": true,
+            "name": "focas"
+        },
+        {
+            "extra_param": 950,
+            "is_enabled": false,
+            "name": "gcode"
+        },
+        {
+            "extra_param": 5680,
+            "is_enabled": false,
+            "name": "exi3000.discovery"
+        },
+        {
+            "extra_param": 3000,
+            "is_enabled": false,
+            "name": "exi3000.mgmt"
+        },
+        {
+            "extra_param": 30740,
+            "is_enabled": true,
+            "name": "meggitt.vibrometer"
+        },
+        {
+            "extra_param": 24576,
+            "is_enabled": true,
+            "name": "abb_netconfig"
+        },
+        {
+            "extra_param": 9600,
+            "is_enabled": true,
+            "name": "fins.udp"
+        },
+        {
+            "extra_param": 10004,
+            "is_enabled": true,
+            "name": "terasaki.negotiation"
+        },
+        {
+            "extra_param": 10008,
+            "is_enabled": false,
+            "name": "terasaki.realtime_data_sync"
+        },
+        {
+            "extra_param": 8001,
+            "is_enabled": true,
+            "name": "siemens_cargo.cargo_compact"
+        },
+        {
+            "extra_param": 3002,
+            "is_enabled": false,
+            "name": "siemens_cargo.cargo_compact_sensor"
+        },
+        {
+            "extra_param": 2001,
+            "is_enabled": false,
+            "name": "siemens_cargo.cargo_compact_control"
+        },
+        {
+            "extra_param": [
+                9000,
+                9002
+            ],
+            "is_enabled": true,
+            "name": "smiths_detection.broadcast"
+        },
+        {
+            "extra_param": "3000-3030",
+            "is_enabled": false,
+            "name": "mdlc.mdlc_proprietary"
+        },
+        {
+            "extra_param": [
+                5052,
+                5065
+            ],
+            "is_enabled": false,
+            "name": "telvent.oasys"
+        }
+    ],
+    "success": true
+}
+
+----------------------------------------------------------------------
+
